@@ -15,7 +15,7 @@ public class pigLatin {
 
         // -- Count the number of spaces in the phrase. -- 
         for (int i = 0; i < phraseLen; i++) { //looping through phrase individual characters
-            if (phrase[i].equals(" ")) {
+            if (phrase.substring(i,i).equals(" ")) {
                 spacePosition.set(numSpaces, i); //add a space position marker at i. CAREFUL, index starts at zero i think.
                 numSpaces++; //count up number of spaces
             }
@@ -29,7 +29,8 @@ public class pigLatin {
         for (int j = 0; j < numSpaces; j++) { //substring with loop
             words[j] = phrase.substring(spacePositionCursor + 1, spacePosition.get(j));
             spacePositionCursor = spacePosition.get(j);
-
         }
+
+        System.out.println(words); //debug
     }
 }
