@@ -47,14 +47,14 @@ import java.util.ArrayList;
 
 public class pigLatin {
     public static void main(String[] args) {
-        System.out.println("Pig Latin Translator\n"); //Intro
+        System.out.println("Pig Latin Translator"); //Intro
         System.out.print("Please input a phrase: "); //Field for user to input
 
         Scanner stringScan = new Scanner(System.in); //Creates a new scanner
         String phrase = stringScan.nextLine() + " "; //note on debug1 8:51pm 9/8/2023: phrase scanning worked.
         int phraseLen = phrase.length();
 
-        ArrayList<String> words = new ArrayList<String>();
+        ArrayList<String> words = new ArrayList<String>(); // resizing arrays are important lmfao
         int cursorStart = 0;
 
         for (int i = 0; i < phraseLen; i++) {
@@ -67,7 +67,20 @@ public class pigLatin {
         int numWords = words.size();
 
         for (int j = 0; j < numWords; j++) {
-            
+            words.get(j).toLowerCase();
+            if (words.get(j).substring(0,1) == "a" || words.get(j).substring(0,1) == "e" ||
+                words.get(j).substring(0,1) == "i" || words.get(j).substring(0,1) == "o" ||
+                words.get(j).substring(0,1) == "u") { //there has to be a better way to do this...
+                    words.set(j, words.get(j) + "way");
+            } else {
+                words.set(j, words.get(j).substring(1) + words.get(j).substring(0,1) + "ay");
+            }
+        }
+
+        System.out.println("Your phrase in Pig Latin:");
+
+        for (int k = 0; k < numWords; k++) {
+            System.out.print(words.get(k) + " ");
         }
     }
 }
