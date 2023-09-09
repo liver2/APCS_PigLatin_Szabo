@@ -67,13 +67,13 @@ public class pigLatin {
         int numWords = words.size();
 
         for (int j = 0; j < numWords; j++) {
-            words.get(j).toLowerCase();
-            if (words.get(j).substring(0,1) == "a" || words.get(j).substring(0,1) == "e" ||
-                words.get(j).substring(0,1) == "i" || words.get(j).substring(0,1) == "o" ||
-                words.get(j).substring(0,1) == "u") { //there has to be a better way to do this...
-                    words.set(j, words.get(j) + "way");
+
+            if (words.get(j).toLowerCase().substring(0,1) == "a" || words.get(j).toLowerCase().substring(0,1) == "e" ||
+                words.get(j).toLowerCase().substring(0,1) == "i" || words.get(j).toLowerCase().substring(0,1) == "o" ||
+                words.get(j).toLowerCase().substring(0,1) == "u") { //there has to be a better way to do this...
+                    words.set(j, words.get(j).toLowerCase() + "way");
             } else {
-                words.set(j, words.get(j).substring(1) + words.get(j).substring(0,1) + "ay");
+                words.set(j, words.get(j).toLowerCase().substring(1) + words.get(j).toLowerCase().substring(0,1) + "ay");
             }
         }
 
