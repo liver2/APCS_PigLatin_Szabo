@@ -67,13 +67,14 @@ public class pigLatin {
         int numWords = words.size();
 
         for (int j = 0; j < numWords; j++) {
-
-            if (words.get(j).toLowerCase().substring(0,1) == "a" || words.get(j).toLowerCase().substring(0,1) == "e" ||
-                words.get(j).toLowerCase().substring(0,1) == "i" || words.get(j).toLowerCase().substring(0,1) == "o" ||
-                words.get(j).toLowerCase().substring(0,1) == "u") { //there has to be a better way to do this...
-                    words.set(j, words.get(j).toLowerCase() + "way");
-            } else {
-                words.set(j, words.get(j).toLowerCase().substring(1) + words.get(j).toLowerCase().substring(0,1) + "ay");
+            for (int k = 0; k < words.get(j).length(); k++) {
+                if (words.get(j).substring(0,1) != "a" && words.get(j).substring(0,1) != "e" && 
+                    words.get(j).substring(0,1) != "i" && words.get(j).substring(0,1) != "o" && 
+                    words.get(j).substring(0,1) != "u" && words.get(j).substring(0,1) != "A" && 
+                    words.get(j).substring(0,1) != "E" && words.get(j).substring(0,1) != "I" && 
+                    words.get(j).substring(0,1) != "O" && words.get(j).substring(0,1) != "U") {
+                        words.set(j, words.get(j).substring(1) + words.get(j).substring(0,1) + "yay");
+                }
             }
         }
 
