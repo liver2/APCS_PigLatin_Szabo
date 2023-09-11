@@ -68,20 +68,26 @@ public class pigLatin {
 
         for (int j = 0; j < numWords; j++) {
             for (int k = 0; k < words.get(j).length(); k++) {
-                if (words.get(j).substring(0,1).toLowerCase().compareTo("a") == 0 && 
-                    words.get(j).substring(0,1).toLowerCase().compareTo("e") == 0 && 
-                    words.get(j).substring(0,1).toLowerCase().compareTo("i") == 0 && 
-                    words.get(j).substring(0,1).toLowerCase().compareTo("o") == 0 && 
-                    words.get(j).substring(0,1).toLowerCase().compareTo("u") == 0) {
+                if (words.get(j).substring(0,1).toLowerCase().compareTo("a") != 0 && 
+                    words.get(j).substring(0,1).toLowerCase().compareTo("e") != 0 && 
+                    words.get(j).substring(0,1).toLowerCase().compareTo("i") != 0 && 
+                    words.get(j).substring(0,1).toLowerCase().compareTo("o") != 0 && 
+                    words.get(j).substring(0,1).toLowerCase().compareTo("u") != 0) {
                         words.set(j, words.get(j).substring(1) + words.get(j).substring(0,1));
+                } else if (k == 0) {
+                        words.set(j, words.get(j) + "way");
+                        break;
+                } else {
+                        words.set(j, words.get(j) + "ay");
+                        break;
                 }
             }
         }
 
-        System.out.println("Your phrase in Pig Latin:");
+        System.out.println("Your phrase in Pig Latin (all in lowercase):");
 
         for (int k = 0; k < numWords; k++) {
-            System.out.print(words.get(k) + " ");
+            System.out.print(words.get(k).toLowerCase() + " ");
         }
     }
 }
