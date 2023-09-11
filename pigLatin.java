@@ -68,12 +68,12 @@ public class pigLatin {
 
         for (int j = 0; j < numWords; j++) {
             for (int k = 0; k < words.get(j).length(); k++) {
-                if (words.get(j).substring(0,1) != "a" && words.get(j).substring(0,1) != "e" && 
-                    words.get(j).substring(0,1) != "i" && words.get(j).substring(0,1) != "o" && 
-                    words.get(j).substring(0,1) != "u" && words.get(j).substring(0,1) != "A" && 
-                    words.get(j).substring(0,1) != "E" && words.get(j).substring(0,1) != "I" && 
-                    words.get(j).substring(0,1) != "O" && words.get(j).substring(0,1) != "U") {
-                        words.set(j, words.get(j).substring(1) + words.get(j).substring(0,1) + "yay");
+                if (words.get(j).substring(0,1).toLowerCase().compareTo("a") == 0 && 
+                    words.get(j).substring(0,1).toLowerCase().compareTo("e") == 0 && 
+                    words.get(j).substring(0,1).toLowerCase().compareTo("i") == 0 && 
+                    words.get(j).substring(0,1).toLowerCase().compareTo("o") == 0 && 
+                    words.get(j).substring(0,1).toLowerCase().compareTo("u") == 0) {
+                        words.set(j, words.get(j).substring(1) + words.get(j).substring(0,1));
                 }
             }
         }
