@@ -29,7 +29,7 @@ public class pigLatin {
                     words.get(j).substring(0,1).toLowerCase().compareTo("e") != 0 && 
                     words.get(j).substring(0,1).toLowerCase().compareTo("i") != 0 && 
                     words.get(j).substring(0,1).toLowerCase().compareTo("o") != 0 && 
-                    words.get(j).substring(0,1).toLowerCase().compareTo("u") != 0) { //comparison: if these strings are not equal...
+                    words.get(j).substring(0,1).toLowerCase().compareTo("u") != 0) { //comparison. i didn't know about indexOf so..
                         words.set(j, words.get(j).substring(1) + words.get(j).substring(0,1)); //move the first letter to the back
                 } else if (k == 0) {
                         words.set(j, words.get(j) + "way");
