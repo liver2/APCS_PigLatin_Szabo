@@ -9,15 +9,15 @@ public class pigLatin {
 
         Scanner stringScan = new Scanner(System.in); //Creates a new scanner
         String phrase = stringScan.nextLine() + " "; //note on debug1 8:51pm 9/8/2023: phrase scanning worked.
-        int phraseLen = phrase.length();
+        int phraseLen = phrase.length(); //used for loop to separate words
 
         ArrayList<String> words = new ArrayList<String>(); // resizing arrays are important lmfao
-        int cursorStart = 0;
+        int cursorStart = 0; //"cursor" system to separate words
 
         for (int i = 0; i < phraseLen; i++) {
             if (phrase.substring(i,i+1).equals(" ")) {
-                words.add(phrase.substring(cursorStart, i));
-                cursorStart = i+1;
+                words.add(phrase.substring(cursorStart, i)); //add a word to the arraylist "words"
+                cursorStart = i+1; 
             }
         }
 
@@ -29,11 +29,11 @@ public class pigLatin {
                     words.get(j).substring(0,1).toLowerCase().compareTo("e") != 0 && 
                     words.get(j).substring(0,1).toLowerCase().compareTo("i") != 0 && 
                     words.get(j).substring(0,1).toLowerCase().compareTo("o") != 0 && 
-                    words.get(j).substring(0,1).toLowerCase().compareTo("u") != 0) {
-                        words.set(j, words.get(j).substring(1) + words.get(j).substring(0,1));
+                    words.get(j).substring(0,1).toLowerCase().compareTo("u") != 0) { //comparison: if these strings are not equal...
+                        words.set(j, words.get(j).substring(1) + words.get(j).substring(0,1)); //move the first letter to the back
                 } else if (k == 0) {
                         words.set(j, words.get(j) + "way");
-                        break;
+                        break; //otherwise, use the vowel rule (Each => Eachway)
                 } else {
                         words.set(j, words.get(j) + "ay");
                         break;
@@ -44,7 +44,7 @@ public class pigLatin {
         System.out.println("Your phrase in Pig Latin (all in lowercase):");
 
         for (int k = 0; k < numWords; k++) {
-            System.out.print(words.get(k).toLowerCase() + " ");
+            System.out.print(words.get(k).toLowerCase() + " "); //print out modified words w/ spaces in between.
         }
     }
 }
